@@ -14,19 +14,16 @@ public class PersonDAOImp implements PersonDAO {
     private EntityManager entityManager;
 
     @Override
-    @Transactional
     public void saveUser(Person person) {
         entityManager.persist(person);
     }
 
     @Override
-    @Transactional
     public void updateUser(Person person) {
         entityManager.merge(person);
     }
 
     @Override
-    @Transactional
     public void removeUser(Long id) {
         Person person = entityManager.find(Person.class, id);
         if(person != null)

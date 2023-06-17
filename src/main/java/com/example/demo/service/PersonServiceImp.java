@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dao.PersonDAO;
 import com.example.demo.model.Person;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,16 +19,19 @@ public class PersonServiceImp implements PersonService {
 
 
     @Override
+    @Transactional
     public void saveUser(Person person) {
         personDAO.saveUser(person);
     }
 
     @Override
+    @Transactional
     public void updateUser(Person person) {
         personDAO.updateUser(person);
     }
 
     @Override
+    @Transactional
     public void removeUser(Long id) {
         personDAO.removeUser(id);
     }
